@@ -12,13 +12,13 @@ cbuffer MatrixBuffer : register(b0)
 struct InputType
 {
 	float4 position : POSITION;
-	float4 colour : COLOR;
+    float2 tex : TEXTURE;
 };
 
 struct OutputType
 {
 	float4 position : SV_POSITION;
-	float4 colour : COLOR;
+    float2 tex : TEXTURE;
 };
 
 OutputType main(InputType input)
@@ -36,7 +36,7 @@ OutputType main(InputType input)
     output.position.x *= 2.f;
     output.position.y *= 2.f;
 	
-	output.colour = input.colour;
+    output.tex = input.tex;
 	
 
 	return output;
